@@ -2,8 +2,7 @@
 const express = require('express');
 const router = express.Router();
 router.get('/',(req, res, next) => {
-    const items = new Items();
-    items.getItems(err, data) => {
+    getItem((err, data) => {
         if(err) {
             console.log('Could not read file.')
             conssole.log(err);
@@ -19,14 +18,14 @@ router.get('/',(req, res, next) => {
                 itemsData: itemsData, 
         });
     }
+   });
 });
-
 module.exports = router;
 const fs = require('fs');
 const path = require('path');
 
-module.exports = class Items{
-    getItems(callBack){
-        fs.readFile(path.join(__dirname, 'items.json'), callBack);
-    }
+
+function getItem(callBack){
+    fs.readFile(path.join(__dirname, 'items.json'), callBack);
 }
+
