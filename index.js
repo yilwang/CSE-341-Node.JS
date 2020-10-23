@@ -39,11 +39,19 @@ const app = express();
 app.use(cors(corsOptions));
 // Route setup. You can implement more in the future!
 
-const pr01Routes = require('./routes/pro01');
+
 const ta01Routes = require('./routes/ta01');
+const pr01Routes = require('./routes/pro01');
 const ta02Routes = require('./routes/ta02');
+const pr02Routes = require('./routes/pro02');
 const ta03Routes = require('./routes/ta03'); 
+const pr03Routes = require('./routes/pro03');
 const ta04Routes = require('./routes/ta04'); 
+const pr04Routes = require('./routes/pro04');
+const ta05Routes = require('./routes/ta05'); 
+const pr05Routes = require('./routes/pro05');
+const ta06Routes = require('./routes/ta06'); 
+const pr06Routes = require('./routes/pro06');
 
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -58,8 +66,15 @@ app.use(express.static(path.join(__dirname, 'public')))
    .use('/ta01', ta01Routes)
    .use('/pr01', pr01Routes)
    .use('/ta02', ta02Routes) 
-   .use('/ta03', ta03Routes) 
+   .use('/pr02', pr02Routes)
+   .use('/ta03', ta03Routes)
+   .use('/pr03', pr03Routes) 
    .use('/ta04', ta04Routes)
+   .use('/pr04', pr04Routes)
+   .use('/ta05', ta05Routes)
+   .use('/pr05', pr05Routes)
+   .use('/ta06', ta06Routes)
+   .use('/pr06', pr06Routes)
    .get('/', (req, res, next) => {
      // This is the primary index, always handled last. 
      res.render('pages/index', {title: 'Welcome to my CSE341 repo', path: '/'});

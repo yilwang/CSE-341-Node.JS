@@ -1,21 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <% include ../includes/header.ejs %>
-</head>
+  <head>
+    <% include ../includes/header.ejs %>
+  </head>
 
-<body>
-  <% include ../includes/nav.ejs %>
-<div class="jumbotron text-center">
-  <div class="container">
-    <h1><%= title %></h1>
-    <p>This is the placeholder for Team Activity 02</p>
-  </div>
-</div>
-<div class="container">
-  
-</div>
+  <body>
+    <% include ../includes/nav.ejs %>
+    <div class="jumbotron text-center">
+      <div class="container">
+        <h1><%= title %></h1>
+        <p>Team Activity 02</p>
+      </div>
+    </div>
+    <div class="container">
+      <div>
+        <!--Ta02's requirement 01-->
+        <% if(error !== ""){%>
+          <div class="alert alert-danger" role="alert"><h2><%=error%></h2></div>
+        <% } %>
+        <form action ="/ta02/addUser" method ="POST">
+          <label for ="newUser">New User</label>
+          <input type ="text" name="newUser">
+          <button type ="submit">Add User</button>
+        </form>
+      </div>
+      <div>
+        <!--Ta02's requirement 03-->
+        <form action ="/ta02/removeUser" method ="POST">
+          <label>Remove Certain User</label>
+          <input type="text" name ="remUser">
+          <button>Remove User</button>
+        </form>
+      </div>
+
+      <div>
+      <!-- Looped List for requirement 01 that goes through username store in the ta02.js file-->
+      <h3>Current User in the Database</h3>
+        <% for(user of users) { %> <%# This ejs statement does not include equal sign, and it will run the js code here from the ta02.js file %>
+          <p><%= user%></p>   <%# This ejs statement includes equal sign. It will print out the content stored in user %>
+        <% } %>
+      </div>
 
 
-</body>
+    </div>
+
+
+  </body>
 </html>

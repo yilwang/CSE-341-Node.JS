@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <%include .. / includes/ header/ejs %>
+    <style>
+        body{
+            color: <%= color%>;
+        }
+    </style>
+</head>
+
+
+<body>
+    <%include ../includes/nav.ejs % >
+        <div>
+            <form action ="/ta05/change-style" method ="POST">
+            <button type ="submit">Submit</button>
+            </form>
+        </div>
+
+</body>
+
+
+</html>
