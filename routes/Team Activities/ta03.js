@@ -5,7 +5,7 @@ router.get('/',(req, res, next) => {
     getItem((err, data) => {
         if(err) {
             console.log('Could not read file.')
-            conssole.log(err);
+            console.log(err);
             res.end();
         } else{   
             const itemsData = JSON.parse(data);
